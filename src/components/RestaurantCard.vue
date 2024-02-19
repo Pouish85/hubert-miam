@@ -6,8 +6,8 @@
             <p class="name flex-1 text-shadow shadow-gray-400">Nom</p>
             <p class="note min-w-[8%] bg-green-700 rounded-full text-center shadow-md shadow-green-700 text-gray-300">8.9</p>
         </div>
-        <div class="info-bottom flex w-full pt-2 space-x-4">
-            <p class="delivery-time text-shadow shadow-gray-400">15 - 20 min</p>
+        <div class="info-bottom flex w-full pt-2 space-x-4 text-sm">
+            <p class="delivery-time text-shadow shadow-gray-400 text-xs" ><font-awesome-icon icon="bicycle"/><span class="text-sm pl-1">15 - 20 min</span></p>
             <p class="restaurant-price-tag text-yellow-500 text-shadow-sm shadow-yellow-500">€€</p>
         </div>
     </div>
