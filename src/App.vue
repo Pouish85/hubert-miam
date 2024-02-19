@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <h1 class="text-3xl text-gray-500 border bg-red rounded-full">Hello world!</h1>
+    <RestaurantCard />
   </div>
 </template>
 
 <script>
-
+import RestaurantCard from './components/RestaurantCard.vue';
 export default {
   name: 'App',
+  components: {
+    RestaurantCard
+  }
 }
 </script>
 
