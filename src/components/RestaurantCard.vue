@@ -1,6 +1,6 @@
 <template>
   <div class="restaurant--card w-[32%] h-[30vh] border rounded-xl flex flex-col items-center justify-center shadow-gray-400 shadow-md hover:shadow-blue-400 transition duration-500 hover:border-blue-200">
-    <div class="restaurant--image flex h-[70%] w-full bg-cover bg-center rounded-t-xl shadow-gray-500 shadow-md" :style="{ backgroundImage: `url(${restaurantInfo.restaurantImage})` }"></div>
+    <div class="restaurant--image flex h-[70%] w-full bg-cover bg-center rounded-t-xl shadow-gray-500 shadow-md" :style="changeBackground"></div>
     <div class="restaurant--info h-1/3 w-full p-2">
         <div class="info-top flex w-full">
             <p class="name flex-1 text-shadow shadow-gray-400">{{ restaurantInfo.restaurantName }}</p>
@@ -15,10 +15,21 @@
 </template>
 
 <script>
+  import { computed } from 'vue'
   export default {
     name: 'RestaurantCard',
     props: {
       restaurantInfo: Object
+    },
+    setup(props) {
+      const changeBackground = computed(() => {
+        return {
+          backgroundImage: `url(${props.restaurantInfo.restaurantImage})`
+        }
+      })
+      return {
+        changeBackground
+      }
     }
   }
 </script>
