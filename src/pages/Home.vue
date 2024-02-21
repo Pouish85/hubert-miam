@@ -25,6 +25,8 @@
                     this.priceRate = priceRate;
                 }
             }
+            var resto = new Restaurant('McDonalds', 'https://www.mcdonalds.fr/sites/default/files/2020-06/BigMac_0.png', 4.5, 20, 30, 1);
+            console.log(resto);
         }
     }
 </script>
