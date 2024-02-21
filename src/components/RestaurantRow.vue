@@ -10,14 +10,14 @@
 </template>
 
 <script>
-import RestaurantCard from './RestaurantCard.vue';
-export default {
-    name: 'RestaurantRow',
-    components: {
-        RestaurantCard
-    }
-    
-}   
+    import RestaurantCard from './RestaurantCard.vue';
+    export default {
+        name: 'RestaurantRow',
+        components: {
+            RestaurantCard
+        }
+        
+    }   
 
 </script>
 
