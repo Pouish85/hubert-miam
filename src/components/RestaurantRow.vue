@@ -4,18 +4,23 @@
             Nos restaurants
         </h2>
         <div class="wrapper flex w-[80%] justify-center space-x-2">
-            <RestaurantCard v-for="(card, index) in threeRestaurants" :restaurantInfo="card" :key="index"/>
+            <RouterLink v-for="(card, index) in threeRestaurants" :key="index" :to="{name: 'Restaurant', params: {restaurantName: card.restaurantName}}" class="w-[32%]">
+                <RestaurantCard :restaurantInfo="card"/>
+            </RouterLink>
+            
         </div>
     </div>
 </template>
 
 <script>
+    import { RouterLink } from 'vue-router';
     import RestaurantCard from './RestaurantCard.vue';
     export default {
         name: 'RestaurantRow',
         components: {
-            RestaurantCard
-        },
+            RestaurantCard,
+            RouterLink
+},
         props: {
             threeRestaurants: Array
         }
