@@ -46,7 +46,7 @@
 
 ## :dart: About
 
-Application inpired of Uber eats
+Application inspired of Uber eats
 
 ## :sparkles: Features
 
@@ -102,6 +102,3 @@ Made with :heart: by <a href="https://github.com/Pouish85" target="_blank">Pouis
 
 <a href="#top">Back to top</a>
 
-```
-
-```
