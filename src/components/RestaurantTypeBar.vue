@@ -1,5 +1,5 @@
 <template>
-    <div class="flex space-x-5 justify-center w-[80%] border rounded-lg">
+    <div class="flex space-x-5 justify-center w-[80%] d">
         <RouterLink
             v-for="(country, index) in countriesDB"
             :key="index"

@@ -3,6 +3,7 @@
         <Header
             :restaurantData="restaurantData"
             :allRestaurantTypes="allRestaurantTypes"
+            :allRestaurants="allRestaurants"
         />
         <RestaurantRow
             v-for="(row, index) in restaurantData"
