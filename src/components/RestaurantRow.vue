@@ -1,6 +1,13 @@
 <template>
     <div class="restaurant--row flex flex-col w-full items-center">
         <h2
+            v-if="typePage !== ''"
+            class="title w-[80%] text-left text-xl font-bold text-shadow shadow-gray-400 p-3"
+        >
+            Nos restaurants {{ typePage }}
+        </h2>
+        <h2
+            v-else
             class="title w-[80%] text-left text-xl font-bold text-shadow shadow-gray-400 p-3"
         >
             Nos restaurants
@@ -32,6 +39,10 @@ export default {
     },
     props: {
         threeRestaurants: Array,
+        typePage: {
+            type: String,
+            default: "",
+        },
     },
 };
 </script>

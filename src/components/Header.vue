@@ -53,7 +53,11 @@
             Login
         </button>
     </div>
-    <RestaurantTypeBar :allRestaurantTypes="allRestaurantTypes" />
+    <RestaurantTypeBar
+        v-if="typeBar"
+        :allRestaurantTypes="allRestaurantTypes"
+        :restaurantData="restaurantData"
+    />
 </template>
 
 <script>
@@ -72,13 +76,17 @@ export default {
             type: Boolean,
             default: true,
         },
+        typeBar: {
+            type: Boolean,
+            default: true,
+        },
         allRestaurantTypes: Array,
+        restaurantData: Array,
     },
     setup(props) {
         let user_search = ref("");
         let searchResult = ref([]);
         watch(user_search, (newValue) => {
-            console.log("newValue", newValue);
             if (newValue.length >= 3) {
                 let regex = new RegExp(newValue.toLowerCase());
                 let search = props.allRestaurants.filter((restaurant) =>

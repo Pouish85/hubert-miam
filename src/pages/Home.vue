@@ -1,7 +1,7 @@
 <template>
     <div class="home flex flex-col w-full items-center">
         <Header
-            :allRestaurants="allRestaurants"
+            :restaurantData="restaurantData"
             :allRestaurantTypes="allRestaurantTypes"
         />
         <RestaurantRow
@@ -32,7 +32,7 @@ export default {
                 deliveryTimeMin,
                 deliveryTimeMax,
                 priceRate,
-                restaurantType
+                restaurantFoodType
             ) {
                 this.restaurantName = restaurantName;
                 this.restaurantImage = restaurantImage;
@@ -43,7 +43,7 @@ export default {
                 this.restaurantAddressName = restaurantName
                     .replaceAll(" ", "")
                     .toLowerCase();
-                this.restaurantType = restaurantType;
+                this.restaurantFoodType = restaurantFoodType;
             }
         }
         let restaurantData = ref([]);
@@ -59,7 +59,7 @@ export default {
                     restaurant.deliveryTimeMin,
                     restaurant.deliveryTimeMax,
                     restaurant.priceRate,
-                    restaurant.restaurantType
+                    restaurant.restaurantFoodType
                 );
 
                 allRestaurants.push(newRestaurant);
@@ -71,10 +71,13 @@ export default {
                     threeRestaurants.push(newRestaurant);
                 }
 
-                if (!allRestaurantTypes.includes(restaurant.restaurantType)) {
-                    allRestaurantTypes.push(restaurant.restaurantType);
+                if (
+                    !allRestaurantTypes.includes(restaurant.restaurantFoodType)
+                ) {
+                    allRestaurantTypes.push(restaurant.restaurantFoodType);
                 }
             }
+            restaurantData.value.push(threeRestaurants);
         };
 
         onMounted(makeRestaurant);

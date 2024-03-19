@@ -7,7 +7,7 @@ const restaurantsList = [
         deliveryTimeMin: 15,
         deliveryTimeMax: 25,
         priceRate: 2,
-        restaurantType: "France",
+        restaurantFoodType: "France",
     },
     {
         restaurantName: "Le Petit Bistrot",
@@ -17,7 +17,7 @@ const restaurantsList = [
         deliveryTimeMin: 20,
         deliveryTimeMax: 30,
         priceRate: 1,
-        restaurantType: "France",
+        restaurantFoodType: "France",
     },
     {
         restaurantName: "A la bonne fourchette",
@@ -27,7 +27,7 @@ const restaurantsList = [
         deliveryTimeMin: 25,
         deliveryTimeMax: 35,
         priceRate: 3,
-        restaurantType: "France",
+        restaurantFoodType: "France",
     },
     {
         restaurantName: "Parisian Bistro",
@@ -37,7 +37,7 @@ const restaurantsList = [
         deliveryTimeMin: 10,
         deliveryTimeMax: 20,
         priceRate: 1,
-        restaurantType: "France",
+        restaurantFoodType: "France",
     },
     {
         restaurantName: "Restaurant de la Tour",
@@ -47,7 +47,7 @@ const restaurantsList = [
         deliveryTimeMin: 15,
         deliveryTimeMax: 25,
         priceRate: 3,
-        restaurantType: "France",
+        restaurantFoodType: "France",
     },
     {
         restaurantName: "Au bon gout",
@@ -57,7 +57,7 @@ const restaurantsList = [
         deliveryTimeMin: 20,
         deliveryTimeMax: 30,
         priceRate: 2,
-        restaurantType: "France",
+        restaurantFoodType: "France",
     },
     {
         restaurantName: "Mexico Loco",
@@ -67,7 +67,7 @@ const restaurantsList = [
         deliveryTimeMin: 5,
         deliveryTimeMax: 15,
         priceRate: 1,
-        restaurantType: "Mexique",
+        restaurantFoodType: "Mexique",
     },
     {
         restaurantName: "Japan Street",
@@ -77,7 +77,7 @@ const restaurantsList = [
         deliveryTimeMin: 20,
         deliveryTimeMax: 30,
         priceRate: 2,
-        restaurantType: "Japon",
+        restaurantFoodType: "Japon",
     },
     {
         restaurantName: "Le haut de gamme",
@@ -87,7 +87,7 @@ const restaurantsList = [
         deliveryTimeMin: 25,
         deliveryTimeMax: 35,
         priceRate: 3,
-        restaurantType: "France",
+        restaurantFoodType: "France",
     },
     {
         restaurantName: "La pasta del mondo",
@@ -97,7 +97,17 @@ const restaurantsList = [
         deliveryTimeMin: 10,
         deliveryTimeMax: 20,
         priceRate: 1,
-        restaurantType: "Italie",
+        restaurantFoodType: "Italie",
+    },
+    {
+        restaurantName: "La piazza de la pizza",
+        restaurantImage:
+            "https://images.unsplash.com/photo-1621538997517-58ce53933faa?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        restaurantNote: 7.6,
+        deliveryTimeMin: 15,
+        deliveryTimeMax: 25,
+        priceRate: 2,
+        restaurantFoodType: "Italie",
     },
 ];
 module.exports = restaurantsList;
