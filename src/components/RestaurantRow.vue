@@ -1,17 +1,21 @@
 <template>
     <div class="restaurant--row flex flex-col w-full items-center">
         <h2
-            v-if="typePage !== ''"
+            v-if="typePage !== '' && index === 0"
             class="title w-[80%] text-left text-xl font-bold text-shadow shadow-gray-400 p-3"
         >
             Nos restaurants {{ typePage }}
         </h2>
         <h2
-            v-else
+            v-else-if="typePage === '' && index === 0"
             class="title w-[80%] text-left text-xl font-bold text-shadow shadow-gray-400 p-3"
         >
             Nos restaurants
         </h2>
+        <h2
+            v-else
+            class="title w-[80%] text-left text-xl font-bold text-shadow shadow-gray-400 p-3"
+        ></h2>
         <div class="wrapper flex w-[80%] justify-center space-x-2">
             <RouterLink
                 v-for="(card, index) in threeRestaurants"
@@ -43,7 +47,9 @@ export default {
             type: String,
             default: "",
         },
+        index: Number,
     },
+    setup() {},
 };
 </script>
 

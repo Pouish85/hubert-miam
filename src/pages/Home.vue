@@ -9,6 +9,7 @@
             v-for="(row, index) in restaurantData"
             :key="index"
             :threeRestaurants="row"
+            :index="index"
         />
     </div>
 </template>

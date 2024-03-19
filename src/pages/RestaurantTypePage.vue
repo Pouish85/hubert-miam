@@ -7,14 +7,12 @@
                 :alt="restaurantFoodType.countryName"
                 class="h-32 w-full object-cover overflow-hidden"
             />
-            <h2 class="text-2xl font-bold pt-2">
-                {{ restaurantFoodType.countryName }}
-            </h2>
             <RestaurantRow
                 v-for="(row, index) in foodTypedRestaurantData"
                 :key="index"
                 :threeRestaurants="row"
                 :typePage="restaurantFoodType.countryTypeName"
+                :index="index"
             />
         </div>
     </div>
