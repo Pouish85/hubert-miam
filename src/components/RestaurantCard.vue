@@ -9,8 +9,7 @@
         <div class="restaurant--info h-1/3 w-full p-2">
             <div class="info-top flex w-full">
                 <p class="name flex-1 text-shadow shadow-gray-400">
-                    {{ restaurantInfo.restaurantName }} -
-                    {{ restaurantInfo.restaurantFoodType }}
+                    {{ restaurantInfo.restaurantName }}
                 </p>
                 <p
                     class="note min-w-[8%] bg-green-700 rounded-full text-center shadow-md shadow-green-700 text-gray-300"
