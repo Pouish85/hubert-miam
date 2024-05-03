@@ -1,0 +1,33 @@
+name: Pipeline
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  lint:
+    name: Vue-cli lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - run: npm install
+      - run: npm run lint
+#  node:
+#    needs: [ lint]
+#    name: Project tests
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
+#      - name: Use Node.js 20.x
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: 20.x
+#          cache: 'npm'
+#      - run: npm install
+#      - run: npm run build --if-present
+#      - run: npm run test:unit
+#      - run: npm run test:e2e
