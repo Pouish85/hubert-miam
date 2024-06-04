@@ -1,7 +1,10 @@
 name: Pipeline
 
 on:
-  pull_request
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'
 
 jobs:
   lint:
@@ -31,7 +34,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          context: "{{defaultContext}}"
+          context: "{{defaultContext}}:client"
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/hubert-miam:latest
 #  node:
 #    needs: [ lint]
