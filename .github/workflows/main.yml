@@ -19,7 +19,7 @@ jobs:
       - run: npm run lint
   docker:
     needs: lint
-    if: github.ref == 'refs/heads/master'
+#    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
