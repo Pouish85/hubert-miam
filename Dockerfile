@@ -1,13 +1,13 @@
-FROM node:16-alpine
-
-RUN mkdir /app
+# Build stage
+FROM node:16-alpine AS build
 WORKDIR /app
-
-COPY package.json ./
-
+COPY package*.json ./
 RUN npm install
+COPY . .
+RUN npm run build
 
-COPY public public
-COPY src src
-
-CMD npm run serve
+# Production stage
+FROM nginx:stable-alpine AS production
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
