@@ -21,8 +21,8 @@
 <script>
 import countriesDb from "../countriesDb";
 import { useRoute } from "vue-router";
-import Header from "@/components/Header.vue";
-import RestaurantRow from "@/components/RestaurantRow.vue";
+import Header from "../components/Header.vue";
+import RestaurantRow from "../components/RestaurantRow.vue";
 import bdd from "../bdd.js";
 import { onMounted, ref } from "vue";
 export default {

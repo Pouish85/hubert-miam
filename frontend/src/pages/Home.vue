@@ -17,8 +17,8 @@
 <script>
 import bdd from "../bdd.js";
 import { onMounted, ref } from "vue";
-import RestaurantRow from "@/components/RestaurantRow.vue";
-import Header from "@/components/Header.vue";
+import RestaurantRow from "../components/RestaurantRow.vue";
+import Header from "../components/Header.vue";
 export default {
     name: "HomePage",
     components: {

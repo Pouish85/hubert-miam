@@ -31,7 +31,7 @@
 <script>
 import bdd from "../bdd.js";
 import { useRoute } from "vue-router";
-import Header from "@/components/Header.vue";
+import Header from "../components/Header.vue";
 export default {
     name: "RestaurantPage",
     components: {
