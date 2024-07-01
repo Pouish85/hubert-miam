@@ -32,6 +32,26 @@ export default class CountryResolver {
       return Country.save(country);
     }
 
+    // Update country Mutation
+    @Mutation(() => Country)
+    async updateCountry(
+        @Arg("id") id: number,
+        @Arg("countryName") countryName: string,
+        @Arg("countryFlag") countryFlag: string,
+        @Arg("countryBg") countryBg: string,
+        @Arg("countryTypeName") countryTypeName: string
+    ) {
+        const country = await Country.findOne({ where: { id } });
+        if (!country) {
+            throw new Error("Country not found!");
+        }
+        country.countryName = countryName;
+        country.countryFlag = countryFlag;
+        country.countryBg = countryBg;
+        country.countryTypeName = countryTypeName;
+        return Country.save(country);
+    }
+
     // Delete country Mutation
     @Mutation(() => Boolean)
     async deleteCountry(@Arg("id") id: number) {
