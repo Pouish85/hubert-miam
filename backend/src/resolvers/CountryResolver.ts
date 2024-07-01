@@ -1,12 +1,11 @@
 import { Resolver, Query, Mutation, Arg } from 'type-graphql';
 import { Country } from '../entities/Country';
-import { Restaurant} from "../entities/Restaurant";
 import DataSource from "../db";
 
 @Resolver(Country)
 
 export default class CountryResolver {
-    constructor(private readonly dataSource: typeof DataSource) {}
+    constructor() {}
     // All countries Query
     @Query( () => [Country])
     async countries() {
