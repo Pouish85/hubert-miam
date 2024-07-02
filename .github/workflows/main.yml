@@ -17,7 +17,9 @@ jobs:
           cd frontend
           npm ci
       - name: Install additional dependencies
-        run: npm install
+        run: |
+          cd frontend
+          npm install
       - name: Run lint
         run: npm run lint
   docker:
