@@ -42,8 +42,10 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          context: "{{defaultContext}}"
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hubert-miam:latest
+          context: "{{defaultContext}}:frontend"
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hubert-miam-frontend:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 #  node:
 #    needs: [ lint]
 #    name: Project tests
