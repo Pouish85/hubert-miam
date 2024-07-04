@@ -1,13 +1,15 @@
 import {Resolver, Query, Mutation, Arg} from 'type-graphql';
 import { Restaurant } from '../entities/Restaurant';
 import { Country} from '../entities/Country';
+import DataSource from '../db';
 
 @Resolver(Restaurant)
 export default class RestaurantResolver {
+    private restaurantRepository = DataSource.getRepository(Restaurant);
     // All restaurants Query
     @Query( () => [Restaurant])
     async restaurants() {
-        return await Restaurant.find({
+        return await this.restaurantRepository.find({
             relations: { restaurantFoodType: true },
         });
     }
@@ -36,7 +38,7 @@ export default class RestaurantResolver {
             priceRate,
             restaurantFoodType
         });
-        return Restaurant.save(restaurant);
+        return this.restaurantRepository.save(restaurant);
         }
 
     // Update restaurant Mutation
@@ -66,7 +68,7 @@ export default class RestaurantResolver {
         restaurant.deliveryTimeMax = deliveryTimeMax;
         restaurant.priceRate = priceRate;
         restaurant.restaurantFoodType = restaurantFoodType;
-        return Restaurant.save(restaurant);
+        return this.restaurantRepository.save(restaurant);
     }
 
     // Delete restaurant Mutation
@@ -76,7 +78,7 @@ export default class RestaurantResolver {
         if (!restaurant) {
             throw new Error("Restaurant not found");
         }
-        await Restaurant.remove(restaurant);
+        await this.restaurantRepository.remove(restaurant);
         return true;
     }
 }

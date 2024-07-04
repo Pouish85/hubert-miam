@@ -1,17 +1,27 @@
+import "reflect-metadata";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { buildSchema } from "type-graphql";
-import db from "./db";
+import DataSource from './db';
 import RestaurantResolver from "./resolvers/RestaurantResolver";
 import CountryResolver from "./resolvers/CountryResolver";
 
-const port = 4001;
+const port = 4000;
 
-buildSchema({
-    resolvers: [RestaurantResolver, CountryResolver],
-}).then(async (schema) => {
-    await db.initialize();
+async function main() {
+    await DataSource.initialize();
+
+    const schema = await buildSchema({
+        resolvers: [RestaurantResolver, CountryResolver],
+    });
+
     const server = new ApolloServer({ schema });
-    const { url } = await startStandaloneServer(server, { listen: { port } });
-    console.log(`graphql server listening on ${url}`);
-});
+
+    await startStandaloneServer( server, {
+        listen: {port},
+    }).then(({ url }) => {
+    console.log(`Hey! Server is running, GraphQL Playground available at ${url}`);
+    })
+}
+
+main()
