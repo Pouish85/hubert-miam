@@ -1,14 +1,16 @@
 import { Resolver, Query, Mutation, Arg } from 'type-graphql';
 import { Country } from '../entities/Country';
+import DataSource from '../db';
 
 @Resolver(Country)
 
 export default class CountryResolver {
+    private countryRepository = DataSource.getRepository(Country);
     constructor() {}
     // All countries Query
     @Query( () => [Country])
     async countries() {
-        return await Country.find({
+        return await this.countryRepository.find({
             relations: { restaurants: true },
         });
     }
@@ -27,7 +29,7 @@ export default class CountryResolver {
         countryBg,
         countryTypeName
       });
-      return Country.save(country);
+      return this.countryRepository.save(country);
     }
 
     // Update country Mutation
@@ -47,7 +49,7 @@ export default class CountryResolver {
         country.countryFlag = countryFlag;
         country.countryBg = countryBg;
         country.countryTypeName = countryTypeName;
-        return Country.save(country);
+        return this.countryRepository.save(country);
     }
 
     // Delete country Mutation
@@ -57,7 +59,7 @@ export default class CountryResolver {
         if (!country) {
             throw new Error("Country not found");
         }
-        await Country.remove(country);
+        await this.countryRepository.remove(country);
         return true;
     }
 }

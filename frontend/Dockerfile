@@ -1,13 +1,12 @@
-# Build stage
-FROM node:16-alpine AS build
+FROM node:20.9.0-alpine3.17
+
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
-COPY .. .
-RUN npm run build
+RUN yarn
+COPY src ./src
+COPY public ./public
+COPY *.config.ts ./
+COPY *.config.js ./
+COPY postcss.config.js ./postcss.config.js
 
-# Production stage
-FROM nginx:stable-alpine AS production
-COPY --from=build /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD yarn run serve
